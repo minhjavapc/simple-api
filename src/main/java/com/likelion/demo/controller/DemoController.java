@@ -3,9 +3,8 @@ package com.likelion.demo.controller;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping(value = "/api")
 public class DemoController {
-    @GetMapping(value = "/")
+    @GetMapping(value = "/index")
     public String getTodoList() {
         return "get method";
     }
