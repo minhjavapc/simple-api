@@ -4,6 +4,12 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class DemoController {
+
+    @GetMapping(value = "/")
+    public String index() {
+        return "simple";
+    }
+
     @GetMapping(value = "/index")
     public String getTodoList() {
         return "get method";
