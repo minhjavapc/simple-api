@@ -1,9 +1,21 @@
 package com.likelion.demo.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 
 @RestController
 public class DemoController {
+
+    @Autowired
+    private RestTemplate restTemplate;
+
+    @GetMapping("/restindex")
+    private String test2(){
+        String result = restTemplate.getForObject("http://10.0.31.91:8081/dataway/index", String.class);
+        return result;
+    }
+
     @GetMapping(value = "/")
     public String index() {
         return "simple";
