@@ -10,9 +10,9 @@ public class DemoController {
     @Autowired
     private RestTemplate restTemplate;
 
-    @GetMapping("/restindex")
-    private String test2(){
-        String result = restTemplate.getForObject("http://10.0.31.91:8081/dataway/index", String.class);
+    @GetMapping("/restindex/{path}")
+    private String test2(@PathVariable(value = "path", name = "path") String path) {
+        String result = restTemplate.getForObject(path + "/dataway/index", String.class);
         return result;
     }
 
